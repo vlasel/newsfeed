@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+	metadata-complete="true" version="3.0">
+	<display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>SiteController</servlet-name>
+    <servlet-class>site.SiteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SiteController</servlet-name>
+    <url-pattern>/SiteController</url-pattern>
+  </servlet-mapping>
+  <!--  -->
+  <servlet>
+    <servlet-name>AdminController</servlet-name>
+    <servlet-class>admin.AdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminController</servlet-name>
+    <url-pattern>/admin/adminController</url-pattern>
+  </servlet-mapping>
+  <!--  -->
+  <servlet>
+    <servlet-name>Auth</servlet-name>
+    <servlet-class>auth.Auth</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Auth</servlet-name>
+    <url-pattern>/Auth</url-pattern>
+  </servlet-mapping>
+  <!--  -->
+  <filter>
+    <filter-name>AuthAdmin</filter-name>
+    <filter-class>filter.FilterAuthAdmin</filter-class>
+    <init-param>
+    	<param-name>active</param-name>
+    	<param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthAdmin</filter-name>
+    <url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  <!--  -->
+  <filter>
+    <filter-name>CharsetEncoding</filter-name>
+    <filter-class>filter.FilterCharset</filter-class>
+    <init-param>
+    	<param-name>charset</param-name>
+    	<param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharsetEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
